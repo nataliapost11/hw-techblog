@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+</head>
+
+<body>
+  <header class="p-2">
+    <!-- Check if the user is logged using the flag value passed to the template.
+        If logged in then show the button to logout
+    -->
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      {{#if logged_in}}
+      <a id="logout" href="#">Logout</a>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+    <br />
+    <h1>
+      Tech Blog
+    </h1>
+  </header>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  <footer>
+
+  </footer>
+
+  <!-- TODO: Add a comment describing the functionality of this helper -->
+  <!-- If logge in include the javascript for attaching the click event of the 
+      Logout button using the code from the logout.js -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

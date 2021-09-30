@@ -1,0 +1,13 @@
+{{#each blogs as |blog| }}
+<div class="blog-container">
+  <a href="/viewblog/{{blog.id}}">
+  <div class="blog-header"> 
+      <span class="blog-title">{{blog.title}}</span>     
+      <span class="blog-posted-date">Posted on: {{ format_date_time blog.date_created}}</span>
+  </div>
+  </a>
+  <div class="blog-content"> 
+      {{blog.content}} 
+  </div>
+</div>
+{{/each}}

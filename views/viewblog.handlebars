@@ -1,0 +1,36 @@
+<div class="blog-container">
+  <a href="/viewblog/{{blog.id}}">
+    <div class="blog-header">
+      <span class="blog-title">{{blog.title}}</span>
+      <span class="blog-posted-date">Posted by {{blog.user_id}} on {{ format_date_time blog.date_created}}</span>
+    </div>
+  </a>
+  <div class="blog-content">
+    {{blog.content}}
+  </div>
+</div>
+
+<div class="blog-container">
+  <div class="comments-header">Comments:</div>
+  {{#each comments as |cmt| }}
+  <div class="comment-item">
+    <div class="comment-text">{{cmt.comment}}</div>
+    <div class="comment-date">Posted on: {{ format_date_time cmt.date_created}}</div>
+  </div>
+  {{/each}}
+</div>
+
+
+{{#if logged_in}}
+<form class="form comment-blog-form">
+  <input type="hidden" id="blog-id" value="{{ blog.id}}" />
+  <div class="form-group">
+    <label for="blog-content">Comment:</label>
+    <textarea class="form-input" type="text" id="blog-comment"></textarea>
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+<script src="/js/viewblog.js"></script>
+{{/if}}

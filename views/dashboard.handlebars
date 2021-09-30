@@ -1,0 +1,15 @@
+<div class="blog-container">
+  {{#each blogs as |blog| }}
+  <a href="/editblog/{{blog.id}}">
+    <div class="blog-item">
+      <span class="blog-title">{{blog.title}}</span>
+      <span class="blog-posted-date">Posted on: {{ format_date_time blog.date_created}}</span>
+    </div>
+  </a>
+  {{/each}}
+</div>
+
+<br /><br />
+<div>
+  <a class="btn btn-primary" href="/newblog">+ New Blog</a>
+</div>
